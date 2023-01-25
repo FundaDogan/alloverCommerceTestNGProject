@@ -13,9 +13,12 @@ public class FirstDriverTest {
     @Test
     public void firstDriverTest() throws IOException {
 
+        //hi
 //          driver ==> Driver.getDriver() (We do not need to extend to Driver class)
         Driver.getDriver().get("https://www.techproeducation.com");
         ReusableMethods.getScreenshot("Screenshot");
+
+
 
 //          close the driver
         Driver.closeDriver();
