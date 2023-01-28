@@ -6,6 +6,7 @@ public class HelloWorld {
         System.out.println("hello");
         System.out.println("Bu mesaji okuyanlar alta cevap yazsin");
         System.out.println("merhaba, ben okudum :)    Busra");
+        System.out.println("deneme hayriye");
     }
 
 
