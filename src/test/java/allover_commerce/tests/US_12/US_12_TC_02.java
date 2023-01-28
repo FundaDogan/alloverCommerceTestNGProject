@@ -7,30 +7,20 @@ import allover_commerce.utilities.ConfigReader;
 import allover_commerce.utilities.Driver;
 import allover_commerce.utilities.JSUtils;
 import allover_commerce.utilities.ReusableMethods;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
-public class US_12_TC_01 {
-
+public class US_12_TC_02 {
     /*
     Given User should navigate to Allover Commerce url https://allovercommerce.com/
     When Click on sign in button
     And Enter username into username/email box
     And Enter password into password box
     And Click on sign in button
-    Then Verify sign out is displayed on the website
     And Click on user icon to navigate My Account page
-    Then Verify My Account is visible on the website
     And Click on Addresses button
     And Click add button under the Billing Address
     And Enter firstname into First name box
@@ -40,26 +30,26 @@ public class US_12_TC_01 {
     And Enter a Town/City into Town/City box
     And Enter a state into State box
     And Enter a Zip Code into ZipCode box
-    And Enter a Phone number
+    And Enter an invalid Phone number containing character other than digit
     And Click on save address button
-    Then Verify data has been entered in all required blank fields
+    Then Verify user is not able to save billing address with invalid phone number
      */
+
+    HomePage homePage = new HomePage();
+    LoginPage loginPage = new LoginPage();
+    VendorMyAccountPage vendorMyAccountPage = new VendorMyAccountPage();
 
     @DataProvider
     public Object[][] vendorData(){
-    //  TEST DATA
+        //  TEST DATA
         Object [][] vendorCredentials = {
 
-                {"Laura", "Brown", "100 William F Bell Street", "Richmond Hill", "L4S 0K1", "4204569874"},
+                {"Laura", "Brown", "100 William F Bell Street", "Richmond Hill", "L4S 0K1", "256879*"},
         };
         return vendorCredentials;
     }
-    @Test(dataProvider = "vendorData")
-    public void TC_01(String firstname, String lastname, String street, String city, String zipcode, String phone){
-        HomePage homePage = new HomePage();
-        LoginPage loginPage = new LoginPage();
-        VendorMyAccountPage vendorMyAccountPage = new VendorMyAccountPage();
 
+    public void login() {
         //    User should navigate to Allover Commerce url https://allovercommerce.com/
         Driver.getDriver().get(ConfigReader.getProperty("app_home_url"));
 
@@ -74,25 +64,24 @@ public class US_12_TC_01 {
 
         //    Click on sign in button
         loginPage.signInButton.click();
+    }
 
-        //    Verify sign out is displayed on the website
-        ReusableMethods.waitFor(2);
-        Assert.assertTrue(homePage.signOutButton.isDisplayed());
 
-        //    Click on user icon to navigate My Account page
+    @Test(dataProvider = "vendorData")
+    public void TC_02(String firstname, String lastname, String street, String city, String zipcode, String phone){
+        login();
+
+        //     Click on user icon to navigate My Account page
         homePage.signOutButton.click();
 
-        //    Verify My Account title is visible on the website
-        Assert.assertTrue(vendorMyAccountPage.myAccountTitle.isDisplayed());
-
-        //    Click on Addresses button
+        //     Click on Addresses button
         vendorMyAccountPage.addressesOption.click();
 
-        //    Click add button under the Billing Address
+        //     Click add button under the Billing Address
         ReusableMethods.waitFor(1);
         vendorMyAccountPage.editBillingAddressButton.click();
 
-        //    Enter firstname into First name box
+        //     Enter firstname into First name box
         vendorMyAccountPage.vendorFirstnameInput.clear();
         vendorMyAccountPage.vendorFirstnameInput.sendKeys(firstname);
 
@@ -121,20 +110,17 @@ public class US_12_TC_01 {
         ReusableMethods.waitFor(1);
         vendorMyAccountPage.zipcodeInput.sendKeys(zipcode);
 
-        //    Enter a Phone number
+        //     Enter an invalid Phone number containing character other than digit
         vendorMyAccountPage.vendorPhoneInput.clear();
         vendorMyAccountPage.vendorPhoneInput.sendKeys(phone);
 
-        //    Click on save address button
+        //     Click on save address button
         ReusableMethods.waitFor(2);
         JSUtils.clickElementByJS(vendorMyAccountPage.saveAddressButton);
 
-        //    Verify data has been entered in all required blank fields
-        for(WebElement eachBillingAddressTableElement : vendorMyAccountPage.allBillingAddressTableElements){
-            ReusableMethods.waitFor(1);
-            Assert.assertTrue(eachBillingAddressTableElement.isDisplayed());
-        }
-
+        //     Verify user is not able to save billing address with invalid phone number
+        ReusableMethods.waitFor(3);
+        Assert.assertEquals("PHONE is not a valid phone number.", vendorMyAccountPage.invalidDataAlert.getText());
 
     }
 
@@ -142,7 +128,6 @@ public class US_12_TC_01 {
     public void tearDown(){
         Driver.closeDriver();
     }
-
 
 
 }

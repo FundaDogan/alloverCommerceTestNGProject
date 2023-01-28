@@ -93,17 +93,24 @@ public class JSUtils {
         JavascriptExecutor js = (JavascriptExecutor)Driver.getDriver();
         String value=js.executeScript("return document.getElementById('"+idOfElement+"').value").toString();
         System.out.println(value);
-//        How you get get the value of an input box?
+//        How you get the value of an input box?
 //        We can js executor.
 //        How?
-//        I can get the element using js executor, and get teh value of the element.
+//        I can get the element using js executor, and get the value of the element.
 //        For example, I can get the element by id, and use value attribute to get the value of in an input
-//        I have to do this, cause getText in this case does not return teh text in an input
+//        I have to do this, cause getText in this case does not return the text in an input
     }
 
     public static void addBorderWithJS(WebElement element, String borderStyle){
         JavascriptExecutor js = (JavascriptExecutor)Driver.getDriver();
         js.executeScript("arguments[0].style.border='"+borderStyle+"'",element);
+    }
+
+    //METHOD BELOW CREATED BY HATICE E. SOZERI
+    public static String getValueInStringByJS(String idOfElement){
+        JavascriptExecutor js = (JavascriptExecutor)Driver.getDriver();
+        String value=js.executeScript("return document.getElementById('"+idOfElement+"').value").toString();
+        return value;
     }
 
 }
