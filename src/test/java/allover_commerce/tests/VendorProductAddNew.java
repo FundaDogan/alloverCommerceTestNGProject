@@ -45,7 +45,7 @@ public class VendorProductAddNew {
 
      vendorMyAccountPage.productsButton.click();
 
-     vendorMyAccountPage.addNewButton.click();
+     vendorMyAccountPage.addNewButton1.click();
         ReusableMethods.waitFor(3);
      String inventoryText = vendorMyAccountPage.inventoryButton.getText();
         System.out.println(inventoryText);
