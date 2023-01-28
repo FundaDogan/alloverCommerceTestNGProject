@@ -9,10 +9,10 @@ import java.util.List;
 
 public class VendorMyAccountPage {
 
-
-    public VendorMyAccountPage(){
+    public VendorMyAccountPage (){
         PageFactory.initElements(Driver.getDriver(), this);
     }
+
 
     //*******************HATICE US_12, US_13, US_14*******************
     @FindBy(xpath = "(//h2)[1]")
@@ -157,9 +157,55 @@ public class VendorMyAccountPage {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     //Mustafa US_15_TC_01=============================================================================================================
 
-    @FindBy( linkText = "Store Manager") ////a[@href='https://allovercommerce.com/store-manager/']
+    @FindBy( linkText = "Store Manager")
     public WebElement storeMenagerButton;
 
     @FindBy( linkText = "Products")
