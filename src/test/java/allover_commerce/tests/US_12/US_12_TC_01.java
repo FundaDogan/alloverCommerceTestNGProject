@@ -2,23 +2,16 @@ package allover_commerce.tests.US_12;
 
 import allover_commerce.pages.HomePage;
 import allover_commerce.pages.LoginPage;
-import allover_commerce.pages.VendorMyAccountPage;
 import allover_commerce.utilities.ConfigReader;
 import allover_commerce.utilities.Driver;
 import allover_commerce.utilities.JSUtils;
 import allover_commerce.utilities.ReusableMethods;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 public class US_12_TC_01 {
 

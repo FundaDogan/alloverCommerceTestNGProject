@@ -1,6 +1,5 @@
 package allover_commerce.tests.US_15;
 
-import allover_commerce.pages.VendorMyAccountPage;
 import allover_commerce.utilities.ConfigReader;
 import allover_commerce.utilities.Driver;
 import allover_commerce.utilities.JSUtils;

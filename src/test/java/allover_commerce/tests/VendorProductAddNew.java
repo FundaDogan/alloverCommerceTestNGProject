@@ -1,6 +1,5 @@
 package allover_commerce.tests;
 
-import allover_commerce.pages.VendorMyAccountPage;
 import allover_commerce.utilities.Driver;
 import allover_commerce.utilities.ReusableMethods;
 import org.openqa.selenium.By;

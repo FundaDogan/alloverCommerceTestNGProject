@@ -1,11 +1,9 @@
 package allover_commerce.tests.US_15;
 
-import allover_commerce.pages.VendorMyAccountPage;
 import allover_commerce.utilities.ConfigReader;
 import allover_commerce.utilities.Driver;
 import allover_commerce.utilities.ReusableMethods;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
