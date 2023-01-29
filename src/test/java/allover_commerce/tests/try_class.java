@@ -2,6 +2,7 @@ package allover_commerce.tests;
 
 public class try_class {
     public static void main(String[] args) {
-        System.out.println("proje");
+        System.out.println("proje deneme yapiyoruz");
+        System.out.println("hi");
     }
 }
