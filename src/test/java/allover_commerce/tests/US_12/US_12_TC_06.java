@@ -1,7 +1,6 @@
 package allover_commerce.tests.US_12;
 
 import allover_commerce.pages.HomePage;
-import allover_commerce.pages.LoginPage;
 import allover_commerce.utilities.ConfigReader;
 import allover_commerce.utilities.Driver;
 import allover_commerce.utilities.JSUtils;

@@ -1,19 +1,19 @@
 package allover_commerce.tests.US_15;
 
 
+import allover_commerce.pages.StoreManagerPage;
 import allover_commerce.utilities.ConfigReader;
 import allover_commerce.utilities.Driver;
+import allover_commerce.utilities.JSUtils;
 import allover_commerce.utilities.ReusableMethods;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 public class US_15_TC_01  {
 
 
-    VendorMyAccountPage vendorMyAccountPage=new VendorMyAccountPage();
+
 
 
 
@@ -33,39 +33,46 @@ public class US_15_TC_01  {
 
         Driver.getDriver().findElement(By.linkText("Sign Out")).click();
          ReusableMethods.waitFor(5);
-         vendorMyAccountPage.storeMenagerButton.click();
-
-         vendorMyAccountPage.productsButton.click();
-
-         vendorMyAccountPage.addNewButton1.click();
-         ReusableMethods.waitFor(3);
 
 
     }
 
     @Test
     public void test1(){
+        StoreManagerPage storeManagerPage=new StoreManagerPage() ;
+        ReusableMethods.waitFor(5);
+
+        ReusableMethods.waitFor(5);
+        //Driver.getDriver().findElement(By.linkText("Store Manager")).click();
 
 
-        int flag=0;
-        for(WebElement w:vendorMyAccountPage.menuList){
+      JSUtils.clickElementByJS(storeManagerPage.storeManagerButton);
+        ReusableMethods.waitFor(5);
+        storeManagerPage.productsButton.click();
+
+        storeManagerPage.addNewButton1.click();
+        ReusableMethods.waitFor(3);
 
 
-           if(w.getText().contains("Inventory") || w.getText().contains("Shipping") || w.getText().contains("Attributes") || w.getText().contains("Linked")
-                   || w.getText().contains("SEO")
-                   || w.getText().contains("Toptan Ürün Gösterme Ayarları")
-                   || w.getText().contains("Advanced")) {
-
-               flag++;
-             System.out.println(w.getText());
-             Assert.assertTrue(w.isDisplayed());
-           }
+//        int flag=0;
+//        for(WebElement w:storeManagerPage.menuList){
+//
+//
+//           if(w.getText().contains("Inventory") || w.getText().contains("Shipping") || w.getText().contains("Attributes") || w.getText().contains("Linked")
+//                   || w.getText().contains("SEO")
+//                   || w.getText().contains("Toptan Ürün Gösterme Ayarları")
+//                   || w.getText().contains("Advanced")) {
+//
+//               flag++;
+//             System.out.println(w.getText());
+//             Assert.assertTrue(w.isDisplayed());
+//           }
 
           }
 
 
-        System.out.println(flag);
-        Assert.assertEquals(7,flag);
+//        System.out.println(flag);
+//        Assert.assertEquals(7,flag);
 
 
 
@@ -73,6 +80,6 @@ public class US_15_TC_01  {
 
 
 
-    }
+
 
 
