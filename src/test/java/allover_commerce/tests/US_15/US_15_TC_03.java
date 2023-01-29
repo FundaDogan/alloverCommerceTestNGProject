@@ -1,6 +1,6 @@
 package allover_commerce.tests.US_15;
 
-import allover_commerce.pages.VendorMyAccountPage;
+import allover_commerce.pages.StoreManagerPage;
 import allover_commerce.utilities.ConfigReader;
 import allover_commerce.utilities.Driver;
 import allover_commerce.utilities.JSUtils;
@@ -14,8 +14,7 @@ public class US_15_TC_03 {
 
 
 
-    VendorMyAccountPage vendorMyAccountPage=new VendorMyAccountPage();
-
+    StoreManagerPage storeManagerPage=new StoreManagerPage() ;
     @BeforeTest
     public void test() {
 
@@ -33,11 +32,11 @@ public class US_15_TC_03 {
         Driver.getDriver().findElement(By.linkText("Sign Out")).click();
 
         ReusableMethods.waitFor(1);
-        vendorMyAccountPage.storeMenagerButton.click();
+        storeManagerPage.storeManagerButton.click();
 
-        vendorMyAccountPage.productsButton.click();
+        storeManagerPage.productsButton.click();
 
-        vendorMyAccountPage.addNewButton1.click();
+        storeManagerPage.addNewButton1.click();
         ReusableMethods.waitFor(1);
 
 
@@ -47,18 +46,18 @@ public class US_15_TC_03 {
     public void test1(){
 
    //     vendorMyAccountPage.shippingButton.click();
-        JSUtils.clickElementByJS(vendorMyAccountPage.shippingButton);
+        JSUtils.clickElementByJS(storeManagerPage.shippingButton);
 
-        vendorMyAccountPage.weight.sendKeys("3");
+        storeManagerPage.weight.sendKeys("3");
 
-        vendorMyAccountPage.length.sendKeys("50");
-        vendorMyAccountPage.width.sendKeys("40");
-        vendorMyAccountPage.height.sendKeys("30");
+        storeManagerPage.length.sendKeys("50");
+        storeManagerPage.width.sendKeys("40");
+        storeManagerPage.height.sendKeys("30");
 
-        Select select1=new Select(vendorMyAccountPage.shippingClasses);
+        Select select1=new Select(storeManagerPage.shippingClasses);
         select1.selectByIndex(0);
 
-        Select select2=new Select(vendorMyAccountPage.proccesingTime);
+        Select select2=new Select(storeManagerPage.proccesingTime);
         select2.selectByIndex(5);
 
     }

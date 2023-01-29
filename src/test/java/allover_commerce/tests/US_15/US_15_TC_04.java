@@ -1,6 +1,6 @@
 package allover_commerce.tests.US_15;
 
-import allover_commerce.pages.VendorMyAccountPage;
+import allover_commerce.pages.StoreManagerPage;
 import allover_commerce.utilities.ConfigReader;
 import allover_commerce.utilities.Driver;
 import allover_commerce.utilities.JSUtils;
@@ -12,8 +12,7 @@ import org.testng.annotations.Test;
 public class US_15_TC_04 {
 
 
-    VendorMyAccountPage vendorMyAccountPage=new VendorMyAccountPage();
-
+    StoreManagerPage storeManagerPage=new StoreManagerPage() ;
     @BeforeTest
     public void test() {
 
@@ -32,12 +31,12 @@ public class US_15_TC_04 {
         Driver.getDriver().findElement(By.linkText("Sign Out")).click();
 
         ReusableMethods.waitFor(1);
-        vendorMyAccountPage.storeMenagerButton.click();
+        storeManagerPage.storeManagerButton.click();
 
-        vendorMyAccountPage.productsButton.click();
+        storeManagerPage.productsButton.click();
 
 
-        vendorMyAccountPage.addNewButton1.click();
+        storeManagerPage.addNewButton1.click();
         ReusableMethods.waitFor(1);
 
 
@@ -47,22 +46,22 @@ public class US_15_TC_04 {
     public void test1(){
 
    //   vendorMyAccountPage.attributesButton.click();
-      JSUtils.clickElementByJS(vendorMyAccountPage.attributesButton);
+      JSUtils.clickElementByJS(storeManagerPage.attributesButton);
         ReusableMethods.waitFor(3);
   //  vendorMyAccountPage.colorCheckbox.click();
-      JSUtils.clickElementByJS(vendorMyAccountPage.colorCheckbox);
+      JSUtils.clickElementByJS(storeManagerPage.colorCheckbox);
 
      // vendorMyAccountPage.visibleOnTheProductPageCheckbox.click();
-      JSUtils.clickElementByJS(vendorMyAccountPage.visibleOnTheProductPageCheckbox);
+      JSUtils.clickElementByJS(storeManagerPage.visibleOnTheProductPageCheckbox);
 
 //      vendorMyAccountPage.selectAllButton.click();
-      JSUtils.clickElementByJS(vendorMyAccountPage.selectAllButton);
+      JSUtils.clickElementByJS(storeManagerPage.selectAllButton);
 
 //    vendorMyAccountPage.selectNoneButton.click();
-      JSUtils.clickElementByJS(vendorMyAccountPage.selectNoneButton);
+      JSUtils.clickElementByJS(storeManagerPage.selectNoneButton);
 
 //      vendorMyAccountPage.addNewButton2.click();
-      JSUtils.clickElementByJS(vendorMyAccountPage.addNewButton2);
+      JSUtils.clickElementByJS(storeManagerPage.addNewButton2);
 
 
         System.out.println("pass");
