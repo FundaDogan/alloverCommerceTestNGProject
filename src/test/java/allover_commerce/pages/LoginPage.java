@@ -10,7 +10,7 @@ public class LoginPage {
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
-    //*******************HATICE US_12, US_13, US_14*******************
+//*******************HATICE US_12, US_13, US_14*******************
     @FindBy(id = "username")
     public WebElement usernameInput;
 
@@ -21,6 +21,10 @@ public class LoginPage {
     public WebElement signInButton;
 
 //******************END*********************************************
+
+
+
+
 
 
 
