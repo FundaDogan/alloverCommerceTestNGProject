@@ -5,9 +5,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class VendorMyAccountPage {
+public class VendorMyAccountPageUS_09 {
 
-    public VendorMyAccountPage(){
+    public VendorMyAccountPageUS_09(){
         PageFactory.initElements(Driver.getDriver(), this);
 
     }
