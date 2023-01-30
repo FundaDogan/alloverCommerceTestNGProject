@@ -6,11 +6,11 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class LoginPage {
-    public LoginPage(){
+    public LoginPage() {
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
-//*******************HATICE US_12, US_13, US_14*******************
+    //*******************HATICE US_12, US_13, US_14*******************
     @FindBy(id = "username")
     public WebElement usernameInput;
 
@@ -23,11 +23,11 @@ public class LoginPage {
 //******************END*********************************************
 
 
-
-
-
-
-
-
-
 }
+
+
+
+
+
+
+
