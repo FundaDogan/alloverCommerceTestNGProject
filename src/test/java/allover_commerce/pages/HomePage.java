@@ -21,6 +21,10 @@ public class HomePage {
 
 //******************END*********************************************
 
+    //******************* FUNDA US_19, US_20 *******************
+    @FindBy(xpath = "//a[text()='My Account']")
+    public WebElement MyAccountLink;
+
 
 
 
