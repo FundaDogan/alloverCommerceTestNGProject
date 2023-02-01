@@ -21,9 +21,10 @@ public class US_17_TC_01 {
     Verify that the selected color and size attributes are displayed on the product detail page
     Click on "Attributes"
      */
-    StoreManager27 storeManager27=new StoreManager27() ;
+    StoreManagerPageUS_17 storeManagerPageUS_17=new StoreManagerPageUS_17() ;
     HomePage homePage = new HomePage();
     LoginPage loginPage = new LoginPage();
+    VendorMyAccountPageUS_17 vendorMyAccountPageUS_17 = new VendorMyAccountPageUS_17();
 
 
     @BeforeTest
@@ -40,34 +41,51 @@ public class US_17_TC_01 {
         //    Click on sign in button
         loginPage.signInButton.click();
         //    Verify sign out is displayed on the website
-        waitFor(2);
+        ReusableMethods.waitFor(3);
         homePage.signOutButton.click();
-        storeManager27.storeManager.click();
+
+        storeManagerPageUS_17.storeManager.click();
+
+        storeManagerPageUS_17.productsButton.click();
+
+        storeManagerPageUS_17.addNewButton1.click();
+        ReusableMethods.waitFor(3);
     }
         @Test
         public void test1() {
+         // storeManagerPageUS_17.productsButton.click();
 
-            storeManager27.productsButton.click();
+            //Select select1 = new Select(storeManagerPageUS_17.allProductTypes);
+            //select1.selectByIndex(4);
 
-            Select select1 = new Select(storeManager27.allProductTypes);
-            select1.selectByIndex(4);
+           //JSUtils.clickElementByJS(storeManagerPageUS_17.addNewButton1);
 
-            storeManager27.addNewButton1.click();
+            ReusableMethods.waitFor(3);
 
-            ReusableMethods.waitFor(5);
+            //   vendorMyAccountPageUS_17.attributesButton.click();
+            JSUtils.clickElementByJS(vendorMyAccountPageUS_17.attributesButton);
+            ReusableMethods.waitFor(3);
 
-            Select select2 = new Select(VendorMyAccountPage27.typeOfProduct);
-            select2.selectByIndex(1);
+            //  vendorMyAccountPageUS_17.colorCheckbox.click();
+            JSUtils.clickElementByJS(vendorMyAccountPageUS_17.colorCheckbox);
 
-            //JSUtils.scrollDownByJS();
+            ReusableMethods.waitFor(3);
 
-            ReusableMethods.waitFor(5);
+            JSUtils.clickElementByJS(vendorMyAccountPageUS_17.sizeCheckbox);
+             vendorMyAccountPageUS_17.addNewButton2.click();
 
-            //StoreManager27.attributesButton.click();
+            Driver.getDriver().switchTo().alert().dismiss();
 
-            JSUtils.clickElementByJS(storeManager27.attributesButton);
+            //Select select2 = new Select(storeManagerPageUS_17.allProductTypes);
+            //select2.selectByIndex(1);
 
-          //storeManager27.attributesButton.click();
+            // vendorMyAccountPage.visibleOnTheProductPageCheckbox.click();
+
+            //vendorMyAccountPageUS_17.addNewButton2.click();
+
+            //vendorMyAccountPageUS_17.textNewColor.click();
+
+            //vendorMyAccountPageUS_17.textNewColor.sendKeys("hyry");
 
         }}
 

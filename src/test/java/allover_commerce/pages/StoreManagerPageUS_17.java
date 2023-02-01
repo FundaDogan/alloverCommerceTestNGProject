@@ -5,8 +5,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class StoreManager27 {
-    public StoreManager27() {
+public class StoreManagerPageUS_17 {
+    public StoreManagerPageUS_17() {
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
@@ -21,8 +21,7 @@ public class StoreManager27 {
     @FindBy(id = "dropdown_product_type")
     public WebElement allProductTypes;
 
-    @FindBy(xpath = "wcfm_products_manage_form_attribute_head")
-    public WebElement attributesButton;
+
 
     @FindBy(id = "attributes_is_visible_1")
     public WebElement visibleOnTheProductPageCheckbox;
@@ -32,5 +31,7 @@ public class StoreManager27 {
     public WebElement selectNoneButton;
     @FindBy(linkText = "Add New")
     public WebElement addNewButton2;
-}
 
+
+}
+//*[@id="wcfm_products_manage_form_attribute_head"]
