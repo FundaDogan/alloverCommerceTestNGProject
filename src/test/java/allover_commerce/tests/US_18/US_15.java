@@ -5,13 +5,13 @@ import allover_commerce.pages.LoginPage;
 import allover_commerce.pages.StoreManagerPageUS_17;
 import allover_commerce.utilities.ConfigReader;
 import allover_commerce.utilities.Driver;
-import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import static allover_commerce.utilities.ReusableMethods.waitFor;
 
-public class US_18_TC_01 {
+public class US_15 {
     StoreManagerPageUS_17 storeManagerPageUS_17=new StoreManagerPageUS_17() ;
     HomePage homePage = new HomePage();
     LoginPage loginPage = new LoginPage();
@@ -34,15 +34,21 @@ public class US_18_TC_01 {
         waitFor(2);
         homePage.signOutButton.click();
         storeManagerPageUS_17.storeManager.click();
-        storeManagerPageUS_17.productsButton.click();
-        storeManagerPageUS_17.addNewButton1.click();
-
-
     }
+
     @Test
+
     public void test1() {
 
-        Select select1 = new Select(storeManagerPageUS_17.productTypeDropdown);
-        select1.selectByIndex(4);
 
-}}
+
+        storeManagerPageUS_17.storeManager.click();
+
+        storeManagerPageUS_17.productsButton.click();
+
+        storeManagerPageUS_17.addNewButton1.click();
+
+              Assert.assertTrue(storeManagerPageUS_17.attributesButton.isDisplayed());
+             Assert.assertTrue(storeManagerPageUS_17.attributesButton.isDisplayed());
+
+    }}

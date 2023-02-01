@@ -3,7 +3,6 @@ package allover_commerce.tests.US_17;
 import allover_commerce.pages.HomePage;
 import allover_commerce.pages.LoginPage;
 import allover_commerce.pages.StoreManagerPageUS_17;
-import allover_commerce.pages.VendorMyAccountPageUS_17;
 import allover_commerce.utilities.ConfigReader;
 import allover_commerce.utilities.Driver;
 import allover_commerce.utilities.ReusableMethods;
@@ -29,8 +28,6 @@ public class US_17_TC_02 {
     StoreManagerPageUS_17 storeManagerPageUS_17=new StoreManagerPageUS_17() ;
     HomePage homePage = new HomePage();
     LoginPage loginPage = new LoginPage();
-
-    VendorMyAccountPageUS_17 vendorMyAccountPageUS_17  = new VendorMyAccountPageUS_17();
 
 
     @BeforeTest
@@ -58,13 +55,13 @@ public class US_17_TC_02 {
         storeManagerPageUS_17.addNewButton1.click();
 
 
-        Select select1 = new Select(storeManagerPageUS_17.allProductTypes);
+        Select select1 = new Select(storeManagerPageUS_17.productTypeDropdown);
         select1.selectByIndex(4);
 
 
         ReusableMethods.waitFor(5);
         // Click on image display
-      vendorMyAccountPageUS_17.addDisplayPhotoIcon.click();
+      storeManagerPageUS_17.addDisplayPhotoIcon.click();
 
         //  Select an image file from computer
         String userHOME=System.getProperty("user.home");
@@ -72,7 +69,7 @@ public class US_17_TC_02 {
        // VendorMyAccountPageUS_17.selectFileBtn.sendKeys(pathOfFile);
 
         //  Click on select button to complete uploading image
-        vendorMyAccountPageUS_17.selectToUploadButton.sendKeys();
+        storeManagerPageUS_17.selectToUploadButton.sendKeys();
 
 
         //Select select2 = new Select(storeManager27.typeOfProduct);

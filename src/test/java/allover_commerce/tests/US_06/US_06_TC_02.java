@@ -6,12 +6,13 @@ import allover_commerce.pages.ShoppingCart06;
 import allover_commerce.utilities.ConfigReader;
 import allover_commerce.utilities.Driver;
 import allover_commerce.utilities.ReusableMethods;
+import org.openqa.selenium.Keys;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 
-public class US_06_TC_01 {
-    /*
- Given  User should land on https://allovercommerce.com/ url
+public class US_06_TC_02 {
+   /*
+   Given  User should land on https://allovercommerce.com/ url
  And Click on 'Sign In' icon
  And Enter a valid user name
  And Enter a valid password
@@ -20,42 +21,40 @@ public class US_06_TC_01 {
  And Enter  the name of desired product
  And Click the "submit" button
  And Click product link
- Then Verify to find the desired product when clicked in the search box.
-     */
- HomePage06 homePage06 = new HomePage06();
- LoginPage06 loginPage06 = new LoginPage06();
- ShoppingCart06 shoppingCart06 = new ShoppingCart06();
+ And Click Add to Cart Button
+ Verify  the user should see the messsage “Gray Leather Shoes” has been added to your cart."
+    */
+    HomePage06 homePage06 = new HomePage06();
+    LoginPage06 loginPage06 = new LoginPage06();
+    ShoppingCart06 shoppingCart06 = new ShoppingCart06();
+
     @Test
-    public void TC_01(){
-       //Go to "https://allovercommerce.com/"
+    public void TC_02() {
+        //Go to "https://allovercommerce.com/"
         Driver.getDriver().get(ConfigReader.getProperty("app_homepage_url"));
         homePage06.singInButton.click();
         loginPage06.usernameInput.sendKeys(ConfigReader.getProperty("app_valid_username"));
         loginPage06.passwordInput.sendKeys(ConfigReader.getProperty("app_valid_password"));
         loginPage06.signInButton.click();
         homePage06.signOutButton.click();
-        //Enter  the name of desired product
         shoppingCart06.searchBox.click();
-        shoppingCart06.searchBox.sendKeys("shoes");
+        shoppingCart06.searchBox.sendKeys("shoes",Keys.ENTER);
         shoppingCart06.submitButton.click();
-
         ReusableMethods.waitFor(2);
         shoppingCart06.clickedProductLink.click();
 
-        //Verify to find the desired product when clicked in the search box.
+        //Click Add to Cart Button
         ReusableMethods.waitFor(2);
-        ReusableMethods.verifyElementDisplayed(shoppingCart06.selectedDesiredProduct);
+       shoppingCart06.addToCart.click();
 
-
+        //Verify  “Gray Leather Shoes” has been added to your cart. message
+        ReusableMethods.waitFor(2);
+        ReusableMethods.verifyElementDisplayed(shoppingCart06.successVerification);
     }
     @AfterMethod
-    public void tearDown(){
+   public void tearDown(){
 
         Driver.closeDriver();
     }
 
-
-
 }
-
-

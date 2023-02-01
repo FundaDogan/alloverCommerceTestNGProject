@@ -1,11 +1,5 @@
 package allover_commerce.tests.US_17;
 
-import allover_commerce.pages.StoreManagerPageUS_17;
-import allover_commerce.pages.VendorMyAccountPageUS_17;
-import allover_commerce.utilities.ConfigReader;
-import allover_commerce.utilities.Driver;
-import allover_commerce.utilities.JSUtils;
-import allover_commerce.utilities.ReusableMethods;
 import org.testng.annotations.Test;
 
 public class denem {

@@ -5,14 +5,16 @@ import allover_commerce.pages.LoginPage;
 import allover_commerce.pages.StoreManagerPageUS_17;
 import allover_commerce.utilities.ConfigReader;
 import allover_commerce.utilities.Driver;
-import org.openqa.selenium.support.ui.Select;
+import allover_commerce.utilities.JSUtils;
+import allover_commerce.utilities.ReusableMethods;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
+import static allover_commerce.utilities.JSUtils.clickElementByJS;
 import static allover_commerce.utilities.ReusableMethods.waitFor;
 
-public class US_18_TC_01 {
-    StoreManagerPageUS_17 storeManagerPageUS_17=new StoreManagerPageUS_17() ;
+public class US_15_02 {
+    StoreManagerPageUS_17 storeManagerPageUS_17 = new StoreManagerPageUS_17();
     HomePage homePage = new HomePage();
     LoginPage loginPage = new LoginPage();
 
@@ -31,18 +33,42 @@ public class US_18_TC_01 {
         //    Click on sign in button
         loginPage.signInButton.click();
         //    Verify sign out is displayed on the website
-        waitFor(2);
         homePage.signOutButton.click();
+        ReusableMethods.waitFor(2);
         storeManagerPageUS_17.storeManager.click();
+
+        storeManagerPageUS_17.storeManager.click();
+
         storeManagerPageUS_17.productsButton.click();
+
         storeManagerPageUS_17.addNewButton1.click();
+    }
+
+    @Test
+
+    public void test1() {
+        ReusableMethods.waitFor(2);
+
+
+        //   vendorMyAccountPage.attributesButton.click();
+        JSUtils.clickElementByJS(storeManagerPageUS_17.attributesButton);
+        ReusableMethods.waitFor(3);
+        //  vendorMyAccountPage.colorCheckbox.click();
+        JSUtils.clickElementByJS(storeManagerPageUS_17.colorCheckbox);
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     }
-    @Test
-    public void test1() {
-
-        Select select1 = new Select(storeManagerPageUS_17.productTypeDropdown);
-        select1.selectByIndex(4);
-
-}}
+}
